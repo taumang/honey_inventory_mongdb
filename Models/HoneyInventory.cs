@@ -12,6 +12,7 @@ namespace honey_inventory_mongdb.Models
     public string? Id { get; set; }
 
     [BsonElement("Name")]
+    [JsonPropertyName("Name")]
     public string Honey_Name { get; set; } = null!;
     public string Honey_Color { get; set; } = null!;
 
