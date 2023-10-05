@@ -6,6 +6,9 @@ Upcoming Features
 A UI will be introduced, constructed using TypeScript to enhance user interaction.
 An online URL facilitated through Docker will be established, making the frontend easily consumable.
 
+The Link to the Original Project:
+    https://github.com/taumang/honey_inventory_practice
+
 ## Tech Stack
 
   ![.NET](https://img.shields.io/badge/.NET%20-v7-purple.svg)
