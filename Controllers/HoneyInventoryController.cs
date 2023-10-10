@@ -11,6 +11,7 @@ namespace honey_inventory_mongdb.Controllers
 {
     [ApiController]
     [Route("[controller]")]
+    [Cors("AllowAllOrigins")]
     public class HoneyInventoryController : ControllerBase
     {
         private readonly HoneyInventoryServices _honeyInventoryServices;
@@ -65,5 +66,15 @@ namespace honey_inventory_mongdb.Controllers
             return NoContent();
         }
   
+    }
+
+    internal class CorsAttribute : Attribute
+    {
+        private string v;
+
+        public CorsAttribute(string v)
+        {
+            this.v = v;
+        }
     }
 }

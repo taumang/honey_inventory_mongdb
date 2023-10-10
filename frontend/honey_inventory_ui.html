@@ -1,0 +1,31 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Honey Inventory</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 p-6">
+
+    <h1 class="text-4xl mb-4">Honey Inventory</h1>
+
+    <div id="inventory-list" class="grid grid-cols-1 gap-4">
+        <!-- Inventory items will be populated here -->
+    </div>
+
+    <div class="mt-8">
+        <h2 class="text-2xl mb-4">Add New Item</h2>
+        <div class="flex items-center">
+            <input type="text" id="new-item-name" placeholder="Item Name" class="p-2 mr-2 border rounded">
+            <input type="number" id="new-item-quantity" placeholder="Quantity" class="p-2 mr-2 border rounded">
+            <button id="add-item-btn" class="p-2 bg-blue-500 text-white rounded">Add</button>
+        </div>
+    </div>
+
+    
+    <script src="honey_inventory_script.js"></script>
+
+
+</body>
+</html>
