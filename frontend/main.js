@@ -1,9 +1,7 @@
-
-// JavaScript to handle CRUD operations and fetch data from the backend API
 let selectedId = null;
 
 async function fetchData() {
-  const response = await fetch('http://localhost:5217/HoneyInventory'); // Replace with your actual API endpoint
+  const response = await fetch('http://localhost:5217/HoneyInventory'); 
   const data = await response.json();
   populateData(data);
 }
@@ -18,6 +16,8 @@ function populateData(data) {
       <h2 class="text-xl font-bold">${item.Honey_Name}</h2>
       <p>Color: ${item.Honey_Color}</p>
       <p>Price: ${item.Honey_Price}</p>
+      <p>Size: ${item.Honey_Size}</p>
+      <p>Quantity: ${item.Honey_Quantity}</p>
     `;
     card.addEventListener('click', () => selectItem(item));
     dataContainer.appendChild(card);
@@ -29,13 +29,17 @@ function selectItem(item) {
   document.getElementById('honey-name').value = item.Honey_Name;
   document.getElementById('honey-color').value = item.Honey_Color;
   document.getElementById('honey-price').value = item.Honey_Price;
+  document.getElementById('honey-size').value = item.Honey_Size;
+  document.getElementById('honey-quantity').value = item.Honey_Quantity;
 }
 
 async function createItem() {
   const newItem = {
     Honey_Name: document.getElementById('honey-name').value,
     Honey_Color: document.getElementById('honey-color').value,
-    Honey_Price: parseFloat(document.getElementById('honey-price').value)
+    Honey_Price: parseFloat(document.getElementById('honey-price').value),
+    Honey_Size: document.getElementById('honey-size').value,
+    Honey_Quantity: parseFloat(document.getElementById('honey-quantity').value)
   };
   const response = await fetch('http://localhost:5217/HoneyInventory', {
     method: 'POST',
@@ -54,7 +58,9 @@ async function updateItem() {
   const updatedItem = {
     Honey_Name: document.getElementById('honey-name').value,
     Honey_Color: document.getElementById('honey-color').value,
-    Honey_Price: parseFloat(document.getElementById('honey-price').value)
+    Honey_Price: parseFloat(document.getElementById('honey-price').value),
+    Honey_Size: document.getElementById('honey-size').value,
+    Honey_Quantity: parseFloat(document.getElementById('honey-quantity').value)
   };
   const response = await fetch(`http://localhost:5217/HoneyInventory/${selectedId}`, {
     method: 'PUT',
@@ -82,7 +88,7 @@ document.getElementById('create-button').addEventListener('click', createItem);
 document.getElementById('update-button').addEventListener('click', updateItem);
 document.getElementById('delete-button').addEventListener('click', deleteItem);
 
-// Call fetchData on page load
+
 window.addEventListener('DOMContentLoaded', (event) => {
   fetchData();
 });

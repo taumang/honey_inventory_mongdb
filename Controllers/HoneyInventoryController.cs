@@ -24,7 +24,7 @@ namespace honey_inventory_mongdb.Controllers
         public async Task<List<HoneyInventory>> Get() => 
             await _honeyInventoryServices.GetAsync();
         
-        [HttpGet("{id:length(24)}")]
+        [HttpGet("{id:Length(24)}")]
         public async Task<ActionResult<HoneyInventory>> Get(string id){
 
             var honey = await _honeyInventoryServices.GetAsync(id);
@@ -43,7 +43,7 @@ namespace honey_inventory_mongdb.Controllers
             return CreatedAtAction(nameof(Get), new {id = newHoney.Id},newHoney);
         }
 
-        [HttpPut("{id:length(24)}")]
+        [HttpPut("{id:Length(24)}")]
         public async Task<IActionResult> Update(string id,HoneyInventory updatedHoney){
             var honey = await _honeyInventoryServices.GetAsync(id);
 
@@ -57,7 +57,7 @@ namespace honey_inventory_mongdb.Controllers
             return NoContent();
         }
 
-        [HttpDelete("{id:length(24)}")]
+        [HttpDelete("{id:Length(24)}")]
         public async Task<IActionResult> Delete(string id){
             var honey = await _honeyInventoryServices.GetAsync(id);
             if(honey is null)
@@ -69,13 +69,5 @@ namespace honey_inventory_mongdb.Controllers
   
     }
 
-    internal class CorsAttribute : Attribute
-    {
-        private string v;
-
-        public CorsAttribute(string v)
-        {
-            this.v = v;
-        }
-    }
+    
 }
