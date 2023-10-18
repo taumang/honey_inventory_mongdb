@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -11,7 +12,7 @@ namespace honey_inventory_mongdb.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    [Cors("AllowAllOrigins")]
+    [EnableCors]
     public class HoneyInventoryController : ControllerBase
     {
         private readonly HoneyInventoryServices _honeyInventoryServices;
