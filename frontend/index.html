@@ -1,0 +1,31 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Honey Inventory</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-200">
+  <div class="container mx-auto mt-10">
+    <h1 class="text-3xl font-bold mb-4">Honey Inventory</h1>
+    
+    <!-- CRUD Form -->
+    <form id="crud-form" class="mb-8">
+      <input type="text" id="honey-name" placeholder="Honey Name" class="p-2 mb-2 border rounded">
+      <input type="text" id="honey-color" placeholder="Honey Color" class="p-2 mb-2 border rounded">
+      <input type="number" id="honey-price" placeholder="Honey Price" class="p-2 mb-2 border rounded">
+      <button type="button" id="create-button" class="p-2 bg-blue-500 text-white rounded">Create</button>
+      <button type="button" id="update-button" class="p-2 bg-yellow-500 text-white rounded">Update</button>
+      <button type="button" id="delete-button" class="p-2 bg-red-500 text-white rounded">Delete</button>
+    </form>
+    
+    <!-- Data Display -->
+    <div id="data-container" class="grid grid-cols-3 gap-4">
+      <!-- Data from the backend will be populated here -->
+    </div>
+  </div>
+  <script src="main.js"></script>
+</body>
+</html>
