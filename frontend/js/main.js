@@ -11,14 +11,18 @@ function populateData(data) {
   dataContainer.innerHTML = '';
   data.forEach(item => {
     const card = document.createElement('div');
-    card.className = 'bg-white p-4 rounded shadow cursor-pointer';
+    card.className = 'flex mb-4';
     card.innerHTML = `
-      <h2 class="text-xl font-bold">${item.Honey_Name}</h2>
-      <p>Color: ${item.Honey_Color}</p>
-      <p>Price: ${item.Honey_Price}</p>
-      <p>Size: ${item.Honey_Size}</p>
-      <p>Quantity: ${item.Honey_Quantity}</p>
-    `;
+    <div class="w-1/4">
+    <h2 class="text-xl font-bold">${item.Honey_Name}</h2>
+    <p>Color: ${item.Honey_Color}</p>
+    <p>Price: ${item.Honey_Price}</p>
+    <p>Size: ${item.Honey_Size}</p>
+    <p>Quantity: ${item.Honey_Quantity}</p>
+  </div>
+  <button id= ${updateButton} class="p-2 bg-yellow-500 text-white rounded">Update</button>
+  <button id=${deleteButton} class="p-2 bg-red-500 text-white rounded ml-2">Delete</button>
+`;
     card.addEventListener('click', () => selectItem(item));
     dataContainer.appendChild(card);
   });
@@ -85,8 +89,8 @@ async function deleteItem() {
 }
 
 document.getElementById('create-button').addEventListener('click', createItem);
-document.getElementById('update-button').addEventListener('click', updateItem);
-document.getElementById('delete-button').addEventListener('click', deleteItem);
+var updateButton = document.getElementById('update-button').addEventListener('click', updateItem);
+var deleteButton = document.getElementById('delete-button').addEventListener('click', deleteItem);
 
 
 window.addEventListener('DOMContentLoaded', (event) => {
